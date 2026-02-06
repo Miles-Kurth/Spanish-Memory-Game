@@ -51,7 +51,10 @@ function component(width, height, color, x, y) {
 
 function updateGameArea() {
     gameArea.clear();
-    myGamePiece.update();
+    for (let i = 0; i < cardsArray.length; i++){
+        cardsArray[i].update();
+    }
+    // myGamePiece.update();
 }
 
 function startGame() {
