@@ -9,14 +9,14 @@
     <h1>Matching Game</h1>
     <script>
 
-const canvasWidth = 1280;
-const canvasHeight = 570;
+const canvasWidth = 1280 + 10;
+const canvasHeight = 570 + 10;
       
 const numRows = 3; //Vertical (down)
 const numCols = 8; //Horizontal (across)
 
-const cardWidth = (canvasWidth - (numCols * 10)) / numCols;
-const cardHeight = (canvasHeight - (numRows * 10)) / numRows;
+const cardWidth = ((canvasWidth - 10) - (numCols * 10)) / numCols;
+const cardHeight = ((canvasHeight - 10) - (numRows * 10)) / numRows;
       
 const cardsArray = [];
 
