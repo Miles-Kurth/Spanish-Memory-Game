@@ -9,6 +9,8 @@
     <!-- <h2>Matching Game</h2> -->
     <script>
 
+import { oklch, formatHex, formatOklch } from 'culori';
+
 const canvasWidth = 1280 + 10;
 const canvasHeight = 570 + 10;
       
@@ -20,6 +22,7 @@ const cardHeight = ((canvasHeight - 10) - (numRows * 10)) / numRows;
       
 const cardsArray = [];
 
+let colorValue = oklch(1,1,1)//HERE
 
 var myGamePiece;
 
