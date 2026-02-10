@@ -22,6 +22,8 @@ const cardHeight = ((canvasHeight - 10) - (numRows * 10)) / numRows;
       
 const cardsArray = [];
 
+
+
 // let colorValue = oklch(1, 0.4, 100);
 
 var myGamePiece;
@@ -40,18 +42,16 @@ var gameArea = {
     }
 }
 
-function component(width, height, color, x, y) {
+function component(width, height, hue, x, y) {
     this.width = width;
     this.height = height;
-    this.color = {
-      mode: 'oklch',
-      l: 0.8,     // Lightness (0 to 1, or 0% to 100%)
-      c: 0.09,    // Chroma (0 to ~0.37 for sRGB/Display P3)
-      h: 100,     // Hue (0 to 360 degrees)
-      alpha: 1.0  // Opacity (0 to 1)
-    };
     this.x = x;
     this.y = y;
+
+    this.lightness = 0.8;
+    this.chroma = 0.09;
+    this.hue = hue%360;
+    
     this.update = function(){
         ctx = gameArea.context;
         ctx.fillStyle = color;
