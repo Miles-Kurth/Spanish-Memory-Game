@@ -1,0 +1,88 @@
+import { oklch, formatHex, formatOklch, converter } from 'culori';
+
+const canvasWidth = 1280 + 10;
+const canvasHeight = 570 + 10;
+      
+const numRows = 3; //Vertical (down)
+const numCols = 8; //Horizontal (across)
+
+const cardWidth = ((canvasWidth - 10) - (numCols * 10)) / numCols;
+const cardHeight = ((canvasHeight - 10) - (numRows * 10)) / numRows;
+      
+const cardsArray = [];
+
+
+
+// let colorValue = oklch(1, 0.4, 100);
+
+var myGamePiece;
+
+var gameArea = {
+    canvas : document.createElement("canvas"),
+    start : function() {
+        this.canvas.width = canvasWidth;
+        this.canvas.height = canvasHeight;
+        this.context = this.canvas.getContext("2d");
+        document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+        this.interval = setInterval(updateGameArea, 20);
+    },
+    clear : function() {
+        this.context.clearRect(0, 0, this.canvas.width, this. canvas. height);
+    }
+}
+
+function component(width, height, hue, x, y) {
+    this.width = width;
+    this.height = height;
+    this.x = x;
+    this.y = y;
+
+    this.lightness = 0.8;
+    this.chroma = 0.09;
+    this.hue = hue%360;
+    
+    this.update = function(){
+        ctx = gameArea.context;
+        ctx.fillStyle = color;
+        ctx.fillRect(this.x, this.y, this.width, this.height);
+    }
+    this.setColor = function(newColor){
+        this.color = newColor;
+    }
+}
+
+function updateGameArea() {
+    gameArea.clear();
+    for (let i = 0; i < cardsArray.length; i++){
+        cardsArray[i].update();
+    }
+    // myGamePiece.update();
+}
+
+function startGame() {
+    gameArea.start();
+    let targetX = 10;
+    let targetY = 10;
+    
+    for (let r = 0; r < numRows; r++){
+      targetX = 10;
+      for (let c = 0; c < numCols; c++){
+        cardsArray.push(new component(cardWidth, cardHeight, 1, targetX, targetY) );
+        targetX += cardWidth + 10;
+      }
+      targetY += cardHeight + 10;
+    }
+    // myGamePiece = new component(cardWidth, cardHeight, "red", 10, 10);
+}
+
+function getRandomHexColor() {
+  const randomColorInt = Math.floor(Math.random() * 16777215); 
+  let hexColor = randomColorInt.toString(16);
+  // Pad the string with leading zeros if it's less than 6 digits long
+  while (hexColor.length < 6) {
+    hexColor = "0" + hexColor;
+  }
+  return "#" + hexColor;
+}
+
+startGame();
