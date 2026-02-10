@@ -1,4 +1,4 @@
-import { oklch, formatHex, formatOklch, converter } from "culori";
+import { oklch, formatHex, formatOklch, converter } from "./culori";
 
 const canvasWidth = 1280 + 10;
 const canvasHeight = 570 + 10;
