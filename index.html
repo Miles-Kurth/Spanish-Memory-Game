@@ -72,7 +72,7 @@ function startGame() {
     for (let r = 0; r < numRows; r++){
       targetX = 10;
       for (let c = 0; c < numCols; c++){
-        cardsArray.push(new component(cardWidth, cardHeight, getRandomHexColor(), targetX, targetY) );
+        cardsArray.push(new component(cardWidth, cardHeight, colorValue, targetX, targetY) );
         targetX += cardWidth + 10;
       }
       targetY += cardHeight + 10;
