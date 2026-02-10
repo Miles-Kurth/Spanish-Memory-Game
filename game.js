@@ -1,4 +1,4 @@
-import { oklch, formatHex, formatOklch, converter } from "./culori";
+import Color from 'colorjs.io';
 
 const canvasWidth = 1280 + 10;
 const canvasHeight = 570 + 10;
@@ -40,8 +40,11 @@ function component(width, height, hue, x, y) {
     this.lightness = 0.8;
     this.chroma = 0.09;
     this.hue = hue%360;
+
+    this.color = new Color("oklch", [this.lightness, this.chroma, this.hue]);
     
     this.update = function(){
+        this.hue += 1;
         ctx = gameArea.context;
         ctx.fillStyle = color;
         ctx.fillRect(this.x, this.y, this.width, this.height);
