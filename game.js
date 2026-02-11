@@ -57,7 +57,7 @@ function component(width, height, hue, x, y) {
 
     this.color = new Color("oklch", [this.lightness, this.chroma, this.hue]);
 
-    this.word = "word";
+    this.word = "two words";
     
     this.update = function(){
         this.hue = ( (this.hue + 1) % 360 ) + 1;
