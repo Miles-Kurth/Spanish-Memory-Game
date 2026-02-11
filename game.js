@@ -12,18 +12,18 @@ const cardHeight = ((canvasHeight - 10) - (numRows * 10)) / numRows;
 const cardsArray = [];
 
 let wordsArray = [
-    [1 , "one"   , false],
-    [2 , "two"   , false],
-    [3 , "three" , false],
-    [4 , "four"  , false],
-    [5 , "five"  , false],
-    [6 , "six"   , false],
-    [7 , "seven" , false],
-    [8 , "eight" , false],
-    [9 , "nine"  , false],
-    [10, "ten"   , false],
-    [11, "eleven", false],
-    [12, "twelve", false]
+    [1 , "one"   , 0],
+    [2 , "two"   , 0],
+    [3 , "three" , 0],
+    [4 , "four"  , 0],
+    [5 , "five"  , 0],
+    [6 , "six"   , 0],
+    [7 , "seven" , 0],
+    [8 , "eight" , 0],
+    [9 , "nine"  , 0],
+    [10, "ten"   , 0],
+    [11, "eleven", 0],
+    [12, "twelve", 0]
 ];
 
 
@@ -57,7 +57,14 @@ function component(width, height, hue, x, y) {
 
     this.color = new Color("oklch", [this.lightness, this.chroma, this.hue]);
 
-    this.word = "two words";
+    this.wordIndex = Math.floor(Math.random() * 12);
+    while (wordsArray[wordIndex][2] < 3){
+        this.wordIndex = Math.floor(Math.random() * 12);
+    }
+    this.wordType = Math.floor(Math.random() * 2)
+    wordsArray[wordIndex][2] += wordType + 1;
+
+    this.word = wordsArray[wordIndex][wordType];
     
     this.update = function(){
         this.hue = ( (this.hue + 1) % 360 ) + 1;
