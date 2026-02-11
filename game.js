@@ -61,7 +61,7 @@ function component(width, height, hue, x, y) {
     this.wordType = Math.floor(Math.random() * 2)
     this.wordIndex = Math.floor(Math.random() * 12);
 
-    while (wordsArray[this.wordIndex][2] >= 3){
+    while (wordsArray[this.wordIndex][2] >= 2){
         this.wordIndex = Math.floor(Math.random() * 12);
     }
     
