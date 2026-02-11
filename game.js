@@ -11,6 +11,21 @@ const cardHeight = ((canvasHeight - 10) - (numRows * 10)) / numRows;
       
 const cardsArray = [];
 
+let wordsArray = [
+    [1 , "one"   , false],
+    [2 , "two"   , false],
+    [3 , "three" , false],
+    [4 , "four"  , false],
+    [5 , "five"  , false],
+    [6 , "six"   , false],
+    [7 , "seven" , false],
+    [8 , "eight" , false],
+    [9 , "nine"  , false],
+    [10, "ten"   , false],
+    [11, "eleven", false],
+    [12, "twelve", false]
+];
+
 
 
 var startingHue = Math.floor(Math.random() * 359) + 1;
