@@ -56,6 +56,8 @@ function component(width, height, hue, x, y) {
     this.hue = hue % 360;
 
     this.color = new Color("oklch", [this.lightness, this.chroma, this.hue]);
+
+    this.word = "word";
     
     this.update = function(){
         this.hue = ( (this.hue + 1) % 360 ) + 1;
@@ -64,7 +66,7 @@ function component(width, height, hue, x, y) {
         ctx.fillRect(this.x, this.y, this.width, this.height);
         ctx.fillStyle = "#000000";
         ctx.font = "20px monospace";
-        ctx.fillText("word", this.x + this.width/2, this.y + this.height/2);
+        ctx.fillText(this.word, this.x + (this.width - this.word.length()) / 2, this.y + (this.height - this.word.length()) / 2);
     }
     this.setColor = function(newColor){
         this.color = newColor;
