@@ -63,7 +63,7 @@ function component(width, height, hue, x, y) {
         ctx.fillStyle = this.color;
         ctx.fillRect(this.x, this.y, this.width, this.height);
         ctx.fillStyle = "#000000";
-        ctx.font = "20px serif";
+        ctx.font = "20px monospace";
         ctx.fillText("word", this.x + this.width/2, this.y + this.height/2);
     }
     this.setColor = function(newColor){
