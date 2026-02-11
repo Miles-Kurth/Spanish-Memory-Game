@@ -66,7 +66,7 @@ function component(width, height, hue, x, y) {
         ctx.fillRect(this.x, this.y, this.width, this.height);
         ctx.fillStyle = "#000000";
         ctx.font = "20px monospace";
-        ctx.fillText(this.word, this.x + (this.width/2 - this.word.length/2), this.y + (this.height/2 - this.word.length/2));
+        ctx.fillText(this.word, this.x + (this.width/2), this.y + (this.height/2 - this.word.length/2));
     }
     this.setColor = function(newColor){
         this.color = newColor;
