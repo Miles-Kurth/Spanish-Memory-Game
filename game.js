@@ -13,7 +13,7 @@ const cardsArray = [];
 
 
 
-var startingHue = 0;
+var startingHue = Math.floor(Math.random() * 359) + 1;
 var ctx;
 
 var gameArea = {
@@ -70,7 +70,7 @@ function startGame() {
       targetX = 10;
       for (let c = 0; c < numCols; c++){
         cardsArray.push( new component(cardWidth, cardHeight, startingHue, targetX, targetY) );
-        startingHue = ( (startingHue + 10) % 360 ) + 1;
+        startingHue = ( (startingHue + 5) % 360 ) + 1;
         targetX += cardWidth + 10;
       }
       targetY += cardHeight + 10;
