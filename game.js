@@ -58,18 +58,19 @@ function component(width, height, hue, x, y) {
     this.color = new Color("oklch", [this.lightness, this.chroma, this.hue]);
 
     //Here
-    this.wordIndex = Math.floor(Math.random() * 12);
-    while (wordsArray[this.wordIndex][2] < 3){
-        this.wordIndex = Math.floor(Math.random() * 12);
-    }
-    this.wordType = Math.floor(Math.random() * 2)
-    wordsArray[this.wordIndex][2] += this.wordType + 1;
+    // this.wordIndex = Math.floor(Math.random() * 12);
+    // while (wordsArray[this.wordIndex][2] < 3){
+    //     this.wordIndex = Math.floor(Math.random() * 12);
+    // }
+    // this.wordType = Math.floor(Math.random() * 2)
+    // wordsArray[this.wordIndex][2] += this.wordType + 1;
 
-    this.word = wordsArray[this.wordIndex][this.wordType];
+    // this.word = wordsArray[this.wordIndex][this.wordType];
     //to here is problem, fix
+    this.word = "words";
     
     this.update = function(){
-        this.hue = ( (this.hue + 1) % 360 ) + 1;
+        this.hue = ( (this.hue) % 360 ) + 1 + 1;
         ctx = gameArea.context;
         ctx.fillStyle = this.color;
         ctx.fillRect(this.x, this.y, this.width, this.height);
