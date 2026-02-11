@@ -16,6 +16,7 @@ const cardsArray = [];
 // let colorValue = oklch(1, 0.4, 100);
 
 var myGamePiece;
+var ctx;
 
 var gameArea = {
     canvas : document.createElement("canvas"),
