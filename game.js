@@ -58,13 +58,13 @@ function component(width, height, hue, x, y) {
     this.color = new Color("oklch", [this.lightness, this.chroma, this.hue]);
 
     this.wordIndex = Math.floor(Math.random() * 12);
-    while (wordsArray[wordIndex][2] < 3){
+    while (wordsArray[this.wordIndex][2] < 3){
         this.wordIndex = Math.floor(Math.random() * 12);
     }
     this.wordType = Math.floor(Math.random() * 2)
-    wordsArray[wordIndex][2] += wordType + 1;
+    wordsArray[this.wordIndex][2] += this.wordType + 1;
 
-    this.word = wordsArray[wordIndex][wordType];
+    this.word = wordsArray[this.wordIndex][this.wordType];
     
     this.update = function(){
         this.hue = ( (this.hue + 1) % 360 ) + 1;
