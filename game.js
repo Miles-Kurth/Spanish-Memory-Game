@@ -13,9 +13,7 @@ const cardsArray = [];
 
 
 
-// let colorValue = oklch(1, 0.4, 100);
-
-var myGamePiece;
+var startingHue = 0;
 var ctx;
 
 var gameArea = {
@@ -45,7 +43,7 @@ function component(width, height, hue, x, y) {
     this.color = new Color("oklch", [this.lightness, this.chroma, this.hue]);
     
     this.update = function(){
-        this.hue += 1;
+        this.hue = ( (this.hue + 1) % 360 ) + 1;
         ctx = gameArea.context;
         ctx.fillStyle = this.color;
         ctx.fillRect(this.x, this.y, this.width, this.height);
@@ -71,7 +69,8 @@ function startGame() {
     for (let r = 0; r < numRows; r++){
       targetX = 10;
       for (let c = 0; c < numCols; c++){
-        cardsArray.push(new component(cardWidth, cardHeight, 1, targetX, targetY) );
+        cardsArray.push( new component(cardWidth, cardHeight, startingHue, targetX, targetY) );
+        startingHue = ( (startingHue + 10) % 360 ) + 1;
         targetX += cardWidth + 10;
       }
       targetY += cardHeight + 10;
