@@ -47,7 +47,7 @@ function component(width, height, hue, x, y) {
     this.update = function(){
         this.hue += 1;
         ctx = gameArea.context;
-        ctx.fillStyle = color;
+        ctx.fillStyle = this.color;
         ctx.fillRect(this.x, this.y, this.width, this.height);
     }
     this.setColor = function(newColor){
