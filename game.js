@@ -62,6 +62,8 @@ function component(width, height, hue, x, y) {
         ctx = gameArea.context;
         ctx.fillStyle = this.color;
         ctx.fillRect(this.x, this.y, this.width, this.height);
+        ctx.font = "20px serif";
+        ctx.fillText("word", this.x, this.y);
     }
     this.setColor = function(newColor){
         this.color = newColor;
