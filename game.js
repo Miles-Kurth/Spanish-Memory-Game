@@ -67,7 +67,7 @@ function component(width, height, hue, x, y) {
     
     wordsArray[this.wordIndex][2] += this.wordType + 1;
 
-    this.word = wordsArray[this.wordIndex][this.wordType];
+    this.word = "" + wordsArray[this.wordIndex][this.wordType];
     //to here is problem, fix
 
 
