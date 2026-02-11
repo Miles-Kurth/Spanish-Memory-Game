@@ -1,4 +1,4 @@
-import Color from colorjs.io;
+import Color from "https://colorjs.io/dist/color.js";
 
 const canvasWidth = 1280 + 10;
 const canvasHeight = 570 + 10;
