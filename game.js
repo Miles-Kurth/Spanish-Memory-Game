@@ -72,7 +72,8 @@ function component(width, height, hue, x, y) {
 
 
     this.update = function(){
-        this.hue = ( (this.hue) % 360 ) + 1 + 1;
+        this.hue = ( (this.hue) % 360 ) + 1 + 0.1;
+        this.color = new Color("oklch", [this.lightness, this.chroma, this.hue]);
         ctx = gameArea.context;
         ctx.fillStyle = this.color;
         ctx.fillRect(this.x, this.y, this.width, this.height);
