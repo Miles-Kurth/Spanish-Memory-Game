@@ -75,17 +75,14 @@ function startGame() {
       }
       targetY += cardHeight + 10;
     }
-    // myGamePiece = new component(cardWidth, cardHeight, "red", 10, 10);
 }
 
-function getRandomHexColor() {
-  const randomColorInt = Math.floor(Math.random() * 16777215); 
-  let hexColor = randomColorInt.toString(16);
-  // Pad the string with leading zeros if it's less than 6 digits long
-  while (hexColor.length < 6) {
-    hexColor = "0" + hexColor;
-  }
-  return "#" + hexColor;
+function getRandomOkLCHColor() {
+  const l = Math.random() * 1;
+  const c = Math.random() * 0.09;
+  const h = (Math.random() * 360) + 1; 
+  
+  return new Color("oklch", [l, c, h]);
 }
 
 startGame();
