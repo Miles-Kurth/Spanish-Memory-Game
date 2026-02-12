@@ -25,7 +25,7 @@ let wordsArray = [
     [11, "eleven", 0],
     [12, "twelve", 0]
 ];
-let wordsArrayAssignments = [[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]];
+let wordsArrayAssignments = [[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]];
 for (let i = 0; i < wordsArray.length; i++){
     wordsArrayAssignments[i][0] = wordsArray[i][0];
     wordsArrayAssignments[i][1] = wordsArray[i][1];
