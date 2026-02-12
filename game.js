@@ -25,20 +25,27 @@ let wordsArray = [
     [11, "eleven", 0],
     [12, "twelve", 0]
 ];
-let wordsArrayAssignments = [
-    [1 , "one"   ],
-    [2 , "two"   ],
-    [3 , "three" ],
-    [4 , "four"  ],
-    [5 , "five"  ],
-    [6 , "six"   ],
-    [7 , "seven" ],
-    [8 , "eight" ],
-    [9 , "nine"  ],
-    [10, "ten"   ],
-    [11, "eleven"],
-    [12, "twelve"]
-];
+let wordsArrayAssignments = [wordsArray.length][2];
+for (let i = 0; i < wordsArray.length; i++){
+    wordsArrayAssignments[i][0] = wordsArray[i][0];
+    wordsArrayAssignments[i][1] = wordsArray[i][1];
+}
+
+
+// let wordsArrayAssignments = [
+//     [1 , "one"   ],
+//     [2 , "two"   ],
+//     [3 , "three" ],
+//     [4 , "four"  ],
+//     [5 , "five"  ],
+//     [6 , "six"   ],
+//     [7 , "seven" ],
+//     [8 , "eight" ],
+//     [9 , "nine"  ],
+//     [10, "ten"   ],
+//     [11, "eleven"],
+//     [12, "twelve"]
+// ];
 
 
 
