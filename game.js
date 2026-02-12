@@ -68,6 +68,8 @@ var gameArea = {
 
 function component(width, height, hue, x, y, cardIndex) {
     this.cardIndex = cardIndex;
+    cardArray[this.cardIndex].id = this.cardIndex;
+
     this.width = width;
     this.height = height;
     this.x = x;
