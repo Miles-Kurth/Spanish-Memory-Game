@@ -72,12 +72,14 @@ var gameArea = {
 
     
 function component(width, height, hue, x, y, cardIndex) {
+    //From here
     this.cardIndex = cardIndex;
     canvas : document.createElement(this.cardIndex);
     
     document.getElementsByName(this.cardIndex).addEventListener('click', function(){
         console.log(this.cardIndex + " has been clicked");
     })
+    //to here
 
     this.width = width;
     this.height = height;
