@@ -60,6 +60,8 @@ var gameArea = {
         this.context = this.canvas.getContext("2d");
         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
         this.interval = setInterval(updateGameArea, 20);
+
+        // this.addEventListener
     },
     clear : function() {
         this.context.clearRect(0, 0, this.canvas.width, this. canvas. height);
@@ -68,7 +70,7 @@ var gameArea = {
 
 function component(width, height, hue, x, y, cardIndex) {
     this.cardIndex = cardIndex;
-    
+
     this.width = width;
     this.height = height;
     this.x = x;
@@ -89,9 +91,10 @@ function component(width, height, hue, x, y, cardIndex) {
     wordsArrayAssignments[this.wordIndex][this.wordType] = -1;
     this.word = "" + wordsArray[this.wordIndex][this.wordType];
 
-    cardArray[this.cardIndex].addEventListener('click', function(){
+    this.addEventListener('click', function(){
         console.log(this.word + " was clicked");
     });
+    
 
 
     this.update = function(){
@@ -114,7 +117,6 @@ function updateGameArea() {
     for (let i = 0; i < cardArray.length; i++){
         cardArray[i].update();
     }
-    // myGamePiece.update();
 }
 
 function startGame() {
