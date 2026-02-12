@@ -25,10 +25,24 @@ let wordsArray = [
     [11, "eleven", 0],
     [12, "twelve", 0]
 ];
+let wordsArrayAssignments = [
+    [1 , "one"   ],
+    [2 , "two"   ],
+    [3 , "three" ],
+    [4 , "four"  ],
+    [5 , "five"  ],
+    [6 , "six"   ],
+    [7 , "seven" ],
+    [8 , "eight" ],
+    [9 , "nine"  ],
+    [10, "ten"   ],
+    [11, "eleven"],
+    [12, "twelve"]
+];
 
 
 
-var startingHue = Math.floor(Math.random() * 359) + 1;
+var startingHue = Math.floor(Math.random() * 360) + 1;
 var ctx;
 
 var gameArea = {
@@ -58,14 +72,15 @@ function component(width, height, hue, x, y) {
     this.color = new Color("oklch", [this.lightness, this.chroma, this.hue]);
 
     //From here
-    this.wordType = Math.floor(Math.random() * 2)
     this.wordIndex = Math.floor(Math.random() * 12);
+    this.wordType = Math.floor(Math.random() * 2);
 
-    while (wordsArray[this.wordIndex][2] >= 3){
+    while (wordsArrayAssignments[this.wordIndex][this.wordType] == -1){
         this.wordIndex = Math.floor(Math.random() * 12);
+        this.wordType = Math.floor(Math.random() * 2);
     }
     
-    wordsArray[this.wordIndex][2] += this.wordType + 1;
+    wordsArrayAssignments[this.wordIndex][this.wordType] = -1;
 
     this.word = "" + wordsArray[this.wordIndex][this.wordType];
     //to here is problem, fix
