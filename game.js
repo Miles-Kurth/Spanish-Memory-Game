@@ -9,7 +9,7 @@ const numCols = 8; //Horizontal (across)
 const cardWidth = ((canvasWidth - 10) - (numCols * 10)) / numCols;
 const cardHeight = ((canvasHeight - 10) - (numRows * 10)) / numRows;
       
-const cardsArray = [];
+const cardArray = [];
 
 let wordsArray = [
     [1 , "one"   , 0],
@@ -66,7 +66,8 @@ var gameArea = {
     }
 }
 
-function component(width, height, hue, x, y) {
+function component(width, height, hue, x, y, cardIndex) {
+    this.cardIndex = cardIndex;
     this.width = width;
     this.height = height;
     this.x = x;
@@ -78,19 +79,18 @@ function component(width, height, hue, x, y) {
 
     this.color = new Color("oklch", [this.lightness, this.chroma, this.hue]);
 
-    //From here
     this.wordIndex = Math.floor(Math.random() * 12);
     this.wordType = Math.floor(Math.random() * 2);
-
     while (wordsArrayAssignments[this.wordIndex][this.wordType] == -1){
         this.wordIndex = Math.floor(Math.random() * 12);
         this.wordType = Math.floor(Math.random() * 2);
     }
-    
     wordsArrayAssignments[this.wordIndex][this.wordType] = -1;
-
     this.word = "" + wordsArray[this.wordIndex][this.wordType];
-    //to here is problem, fix
+
+    cardArray[this.cardIndex].addEventListener('click', function(){
+        console.log(this.word + " was clicked");
+    });
 
 
     this.update = function(){
@@ -110,8 +110,8 @@ function component(width, height, hue, x, y) {
 
 function updateGameArea() {
     gameArea.clear();
-    for (let i = 0; i < cardsArray.length; i++){
-        cardsArray[i].update();
+    for (let i = 0; i < cardArray.length; i++){
+        cardArray[i].update();
     }
     // myGamePiece.update();
 }
@@ -121,12 +121,14 @@ function startGame() {
     let targetX = 10;
     let targetY = 10;
     
+    let count = 0;
     for (let r = 0; r < numRows; r++){
       targetX = 10;
       for (let c = 0; c < numCols; c++){
-        cardsArray.push( new component(cardWidth, cardHeight, startingHue, targetX, targetY) );
+        cardArray.push( new component(cardWidth, cardHeight, startingHue, targetX, targetY, count) );
         startingHue = ( (startingHue + 5) % 360 ) + 1;
         targetX += cardWidth + 10;
+        count++;
       }
       targetY += cardHeight + 10;
     }
