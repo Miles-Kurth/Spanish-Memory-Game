@@ -77,6 +77,7 @@ function component(width, height, hue, x, y, cardIndex) {
     console.log(this.cardIndex);
     canvas : document.createElement("_" + this.cardIndex);
     
+    console.log(Array.from( document.getElementsByName("_" + this.cardIndex) )[0]);
     Array.from( document.getElementsByName("_" + this.cardIndex) )[0].addEventListener('click', function(){
         console.log(this.cardIndex + " has been clicked");
     })
