@@ -61,9 +61,9 @@ var gameArea = {
         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
         this.interval = setInterval(updateGameArea, 20);
 
-        canvas.addEventListener('click', function(){
-            console.log("canvas was clicked");
-        });
+        // canvas.addEventListener('click', function(){
+        //     console.log("canvas was clicked");
+        // });
     },
     clear : function() {
         this.context.clearRect(0, 0, this.canvas.width, this. canvas. height);
